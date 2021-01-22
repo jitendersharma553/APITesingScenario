@@ -1,0 +1,25 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/openjdk:8-jdk-stretch
+
+    steps:
+
+      - checkout
+      
+      - restore_cache:
+          key: apitask-{{ checksum "pom.xml" }}
+      
+      - run: mvn dependency:go-offline
+      
+      - save_cache:
+          paths:
+            - ~/.m2
+          key: apitask-{{ checksum "pom.xml" }}
+      
+      # run tests
+      - run: mvn clean test
+      
+      - store_test_results:
+          path: target/surefire-reports
