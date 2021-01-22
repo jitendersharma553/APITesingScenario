@@ -4,6 +4,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
+/**
+ * Class for getting values form property file.
+ * @author Jitender Sharma
+ *
+ */
 public class ConfigManager {
 	
 private static Properties props = null;
@@ -30,6 +35,11 @@ private static Properties props = null;
 		return manager;
 	}
 	
+	/**
+	 * Get value from property file
+	 * @param key
+	 * @return String 
+	 */
 	public String getString( String key) {
 		return System.getProperty(key, prop.getProperty(key));
 	}

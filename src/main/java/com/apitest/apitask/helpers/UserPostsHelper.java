@@ -32,7 +32,7 @@ public class UserPostsHelper {
 	 */
 	public List<String> getPostsOfUser(String UserID) {
 
-		Posts[] post =  RestAssured.given().log().body().contentType(ContentType.JSON).get(Commons.msgFormat(EndPoints.GET_ALL_POSTS_BY_USERID,UserID)).as(Posts[].class);
+		Posts[] post =  RestAssured.given().contentType(ContentType.JSON).get(Commons.msgFormat(EndPoints.GET_ALL_POSTS_BY_USERID,UserID)).as(Posts[].class);
 		
 		List<String> PostIDs = new ArrayList<String>();
 		for (int i = 0; i < post.length; i++) {

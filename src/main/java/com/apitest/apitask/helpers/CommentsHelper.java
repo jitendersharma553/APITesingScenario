@@ -29,7 +29,7 @@ public class CommentsHelper {
 	 * @return Comments[]
 	 */
 	public Comments[] getCommentsByPostID(String PostID) {
-		Comments[] comments =  RestAssured.given().log().body().contentType(ContentType.JSON).get(Commons.msgFormat(EndPoints.GET_COMMENTS_BY_POSTID,PostID)).as(Comments[].class);
+		Comments[] comments = RestAssured.given().contentType(ContentType.JSON).get(Commons.msgFormat(EndPoints.GET_COMMENTS_BY_POSTID,PostID)).as(Comments[].class);
 		
 		return comments;
 	}

@@ -20,7 +20,7 @@ public class UsersHelper {
 	 * @return int
 	 */
 	public int getStatusCode() {
-		int code = RestAssured.given().log().body().contentType(ContentType.JSON).get(EndPoints.GET_ALL_USERS).getStatusCode();
+		int code = RestAssured.given().contentType(ContentType.JSON).get(EndPoints.GET_ALL_USERS).getStatusCode();
 		return code;
 	}
 	
@@ -30,7 +30,7 @@ public class UsersHelper {
 	 */
 	public UserList[] getAllUser(){
 	
-		UserList[] users = RestAssured.given().log().body().contentType(ContentType.JSON).get(EndPoints.GET_ALL_USERS).as(UserList[].class);
+		UserList[] users = RestAssured.given().contentType(ContentType.JSON).get(EndPoints.GET_ALL_USERS).as(UserList[].class);
 		return users;		
 	}
 	
@@ -40,7 +40,7 @@ public class UsersHelper {
 	 * @return String userID
 	 */
 	public String getUserID(String userName) {
-		UserList[] users = RestAssured.given().log().body().contentType(ContentType.JSON).get(EndPoints.GET_ALL_USERS).as(UserList[].class);
+		UserList[] users = RestAssured.given().contentType(ContentType.JSON).get(EndPoints.GET_ALL_USERS).as(UserList[].class);
 		for (int i = 0; i < users.length; i++) {
 			UserList userList = users[i];
 			if (userList.getUsername().contains(userName))

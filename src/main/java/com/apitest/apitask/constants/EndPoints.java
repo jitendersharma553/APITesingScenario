@@ -1,5 +1,10 @@
 package com.apitest.apitask.constants;
 
+/**
+ * All Endpoints described here.
+ * @author Jitender Sharma
+ *
+ */
 public class EndPoints {
 	
 	public static final String GET_ALL_USERS = "/users";
